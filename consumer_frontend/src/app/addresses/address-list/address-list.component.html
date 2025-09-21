@@ -1,0 +1,29 @@
+<div class="container mt-4">
+  <h3>Addresses</h3>
+  <a [routerLink]="['/customers', customerId, 'addresses', 'add']" class="btn btn-success mb-2">Add Address</a>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Label</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Pin Code</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let a of addresses">
+        <td>{{ a.label }}</td>
+        <td>{{ a.address }}</td>
+        <td>{{ a.city }}</td>
+        <td>{{ a.state }}</td>
+        <td>{{ a.pin_code }}</td>
+        <td>
+          <button class="btn btn-primary btn-sm" (click)="editAddress(a.id)">Edit</button>
+          <button class="btn btn-danger btn-sm" (click)="deleteAddress(a.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

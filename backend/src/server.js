@@ -7,6 +7,9 @@ const customersRouter = require('./routes/customers');
 const { errorHandler } = require('./middleware/errorHandler');
 const { initDb } = require('./db');
 const winston = require('winston');
+const cors = require('cors');
+
+
 
 const logger = winston.createLogger({
   level: 'info',
@@ -17,9 +20,17 @@ const logger = winston.createLogger({
 const app = express();
 const PORT = process.env.PORT || 4000;
 
+app.use(cors()); // allows all origins
 app.use(helmet());
 app.use(cors());
 app.use(express.json());
+
+app.use(cors({
+  origin: '*', // allow all origins
+  methods: ['GET','POST','PUT','DELETE','OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
 
 app.get('/', (req, res) => res.json({ message: 'CockroachDB Customer Backend with Auth is running' }));
 

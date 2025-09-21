@@ -1,0 +1,12 @@
+<div class="container mt-4">
+  <h3>{{ editMode ? 'Edit Address' : 'Add Address' }}</h3>
+  <form (ngSubmit)="save()">
+    <input type="text" [(ngModel)]="address.label" name="label" placeholder="Label" class="form-control mb-2"/>
+    <input type="text" [(ngModel)]="address.address" name="address" placeholder="Address" class="form-control mb-2" required/>
+    <input type="text" [(ngModel)]="address.city" name="city" placeholder="City" class="form-control mb-2" required/>
+    <input type="text" [(ngModel)]="address.state" name="state" placeholder="State" class="form-control mb-2" required/>
+    <input type="text" [(ngModel)]="address.pin_code" name="pin_code" placeholder="Pin Code" class="form-control mb-2" required/>
+    <button type="submit" class="btn btn-success">{{ editMode ? 'Update' : 'Add' }}</button>
+    <button type="button" class="btn btn-secondary ml-2" [routerLink]="['/customers', customerId, 'addresses']">Cancel</button>
+  </form>
+</div>

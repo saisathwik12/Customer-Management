@@ -1,0 +1,9 @@
+<div class="container mt-4">
+  <h2>{{ editMode ? 'Edit Customer' : 'Add Customer' }}</h2>
+  <form (ngSubmit)="save()">
+    <input type="text" [(ngModel)]="customer.name" name="name" placeholder="Name" class="form-control mb-2" required />
+    <input type="text" [(ngModel)]="customer.phone" name="phone" placeholder="Phone" class="form-control mb-2" required />
+    <button type="submit" class="btn btn-success">{{ editMode ? 'Update' : 'Add' }}</button>
+    <button type="button" class="btn btn-secondary ml-2" routerLink="/customers">Cancel</button>
+  </form>
+</div>

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import axios from 'axios';
 
-const API = 'http://localhost:4000/api/auth';
+const API = 'https://customer-management-zfbr.onrender.com/api/auth';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
